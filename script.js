@@ -86,7 +86,12 @@ function playRound(computerChoice = getComputerChoice(), humanChoice = getHumanC
 
 }
 
-while (1 == 1) {
+let round = 1;
+while (round < 6) {
+
+    console.log("********Round " + round, "**********")
     playRound();
+    round++;
+
 }
 
