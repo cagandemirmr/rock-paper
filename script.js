@@ -28,13 +28,14 @@ function getComputerChoice(value = 3) {
 
 function getHumanChoice() {
 
-    let userChoice = (prompt("Your choice (Rock-Paper-Scissor)"));
+    //let userChoice = (prompt("Your choice (Rock-Paper-Scissor)")); //Burada on click ile 'slm yapmaliyiz.
 
-    let userChoices = (userChoice[0].toUpperCase()) + (userChoice.slice(1).toLowerCase());
+    //let userChoices = (userChoice[0].toUpperCase()) + (userChoice.slice(1).toLowerCase()); //Burasi kalkicak
 
 
 
-    return userChoices;
+    //return userChoices;
+
 }
 
 
@@ -52,7 +53,7 @@ function playRound(computerChoice = getComputerChoice(), humanChoice = getHumanC
 
 
         computerScore++;
-        console.log("YOU LOSE SCORE", humanScore, "| COMPUTER:", computerScore);
+        console.log("YOU LOSE SCORE", humanScore, "| COMPUTER:", computerScore); //Bu alert olucak
 
 
 
@@ -66,7 +67,7 @@ function playRound(computerChoice = getComputerChoice(), humanChoice = getHumanC
     } else if (((computerChoice === "Rock") && (humanChoice === "Paper")) || ((computerChoice === "Scissor") && (humanChoice === "Rock"))) {
 
         humanScore++;
-        console.log("YOU WIN SCORE: ", humanScore, "| COMPUTER:", computerScore);
+        console.log("YOU WIN SCORE: ", humanScore, "| COMPUTER:", computerScore); //Bu alert olucak
 
 
 
@@ -77,7 +78,7 @@ function playRound(computerChoice = getComputerChoice(), humanChoice = getHumanC
 
 
     } else {
-        console.log("No One WIN SCORE: ", humanScore, "| COMPUTER:", computerScore);
+        console.log("No One WIN SCORE: ", humanScore, "| COMPUTER:", computerScore); //Bu alert olucak
 
 
     }
@@ -94,4 +95,11 @@ while (round < 6) {
     round++;
 
 }
+
+
+div = document.createElement("div");
+div.classList.add('start');
+
+document.body.appendChild(div);
+
 
