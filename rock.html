@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    
 </head>
 
 <body>
@@ -34,6 +34,197 @@
     </div>  -->
     <!--Sonuca gore bize YOU WIN ya da YOU LOSE mesaji gosteririz. -->
 
+    
+    <script>
+
+        let round = 0;
+
+        let humanScore = 0;
+
+        let computerScore = 0;
+
+
+
+function playRound(computerChoice , humanChoice) {
+
+
+
+    if (((computerChoice === "Rock") && (humanChoice === "Scissor")) || ((computerChoice === "Paper") && (humanChoice === "Rock"))) {
+
+
+        computerScore++;
+        alert("YOU LOSE SCORE"); //Bu alert olucak
+
+
+
+
+
+
+
+
+
+
+    } else if (((computerChoice === "Rock") && (humanChoice === "Paper")) || ((computerChoice === "Scissor") && (humanChoice === "Rock"))) {
+
+        humanScore++;
+        alert("YOU WIN"); //Bu alert olucak
+
+
+
+
+
+
+
+
+
+    } else {
+        alert("No One WIN"); //Bu alert olucak
+
+
+    }
+
+    
+
+
+
+}
+        let divStart = document.createElement("div");
+        divStart.classList.add('start');
+
+        document.body.appendChild(divStart);
+
+        let buttonPlay = document.createElement("button");
+        buttonPlay.textContent = "Play";
+        divStart.appendChild(buttonPlay);
+
+        buttonPlay.addEventListener('click',()=>{
+            document.body.removeChild(divStart);
+
+            let divRound = document.createElement("div");
+            divRound.classList.add("round");
+            document.body.appendChild(divRound);
+            let roundH2 = document.createElement("h2");
+            roundH2.classList.add("roundh2");
+            roundH2.textContent = `ROUND:${round}`;
+            divRound.appendChild(roundH2);
+
+
+
+            let divScore = document.createElement("div");
+            divScore.classList.add("score");
+            document.body.appendChild(divScore);
+
+            let p = document.createElement("p");
+            p.textContent = `Computer: ${computerScore} | Player: ${humanScore}`;
+            divScore.appendChild(p);
+
+            let divButtons = document.createElement("div");
+            divButtons.classList.add("buttons");
+            document.body.appendChild(divButtons);
+
+            let buttonr = document.createElement("button");
+            buttonr.classList.add("rock");
+            buttonr.style.width = "98px";
+            buttonr.style.height = "60px";
+            let imager = document.createElement("img");
+            imager.src = "rock.jpg";
+            imager.style.width = "92px";
+            imager.style.height = "50px";
+            buttonr.appendChild(imager);
+            divButtons.appendChild(buttonr);
+
+
+            let buttonp = document.createElement("button");
+            buttonp.classList.add("paper");
+            buttonp.style.width = "98px";
+            buttonp.style.height = "60px";
+            let imagep = document.createElement("img");
+            imagep.src = "paper.jpg";
+            imagep.style.width = "92px";
+            imagep.style.height = "50px";
+            buttonp.appendChild(imagep);
+            divButtons.appendChild(buttonp);
+
+
+            let buttons = document.createElement("button");
+            buttons.classList.add("scissor");
+            buttons.style.width = "98px";
+            buttons.style.height = "60px";
+            let images = document.createElement("img");
+            images.src = "scissor.jpg";
+            images.style.width = "92px";
+            images.style.height = "50px";
+            buttons.appendChild(images);
+            divButtons.appendChild(buttons);
+
+
+            function getComputerChoice(value = 3) {
+
+            let computer;
+
+            computer = Math.floor(Math.random() * value);
+
+            switch (computer) {
+
+                case 0:
+                    computerVal = "Rock";
+                    break;
+                case 1:
+                    computerVal = "Paper";
+                    break;
+                case 2:
+                    computerVal = "Scissor";
+                    break;
+            }
+
+
+            return computerVal;
+
+        };
+
+            
+
+        function getButtonValue(target){
+            if(target.classList.contains("rock")) return "Rock";
+            if(target.classList.contains("paper")) return "Paper";
+            if(target.classList.contains("scissor")) return "Scissor";
+            };
+
+            divButtons.addEventListener("click",function(event){
+            
+
+            
+
+            
+
+            if (round < 5) {
+                const value = getButtonValue(event.target.closest("button"));
+
+                console.log("********Round " + round, "**********")
+                playRound(humanChoice=value,computerChoice=getComputerChoice());
+                round++;
+                roundH2.textContent = `ROUND:${round}`;
+                p.textContent = `Computer: ${computerScore} | Player: ${humanScore}`;
+
+
+
+        }});
+
+        })
+
+
+        
+        
+
+
+        
+
+        
+
+
+    </script>
 </body>
 
 </html>
+
+
